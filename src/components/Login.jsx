@@ -6,8 +6,9 @@ import axios from "axios";
 import { LOGIN_URL } from "../Constants";
 import { storeToken } from "../utilities/StoreToken";
 import { Alert } from "../utilities/Alert";
+import { useNavigate } from "react-router";
 const Login = () => {
-  
+  const navigate=useNavigate();
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const handleLogin = async () => {
@@ -38,6 +39,8 @@ const Login = () => {
       if (data.token) {
         storeToken(data.token);
         Alert("Login Successfull", "s");
+        navigate('/list')
+        
       } else {
         throw new Error("tokenNotRecieved");
       }

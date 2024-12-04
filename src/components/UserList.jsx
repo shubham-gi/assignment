@@ -21,7 +21,7 @@ const UserList = () => {
         const res=await axios.delete(url)
         const newUser=users.filter(user=>user.id!=id)
         setusers(newUser)
-        Alert("User Deleted successfully",'s')
+        Alert("User Deleted successfully")
         // console.log("deleted "+id,res.data)
     } catch (error) {
         
@@ -42,8 +42,8 @@ const UserList = () => {
         perPage: data.per_page,
         total: data.total,
       });
-    //   console.log(pageDetails);
       if (response.data.data.length > 0) {
+        //   console.log(data);
         setusers(response.data.data);
       } else {
         Alert("No Data to show", "w");

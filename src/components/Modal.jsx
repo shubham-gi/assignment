@@ -33,6 +33,7 @@ export default function Modal({ open, setOpen, user, setUser }) {
       const url = USERS_LIST + `/${user.id}`;
       setloading(true);
       const res = await axios.put(url,user);
+      console.log("user data edited",user)
       console.log(res.data);
       Alert("Update Successfull", "s");
       setOpen(false);

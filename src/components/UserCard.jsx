@@ -11,12 +11,12 @@ const UserCard = ({ user, onEdit, onDelete }) => {
         />
       </div>
       <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
-        <Avatar alt={user.first_name+user.last_name} className="object-cover object-center h-32" sx={{height:120,width:120}}/>
-        {/* <img
+        {/* <Avatar alt={user.first_name+user.last_name} className="object-cover object-center h-32" sx={{height:120,width:120}}/> */}
+        <img
           className="object-cover object-center h-32"
-          src={`https://avatar.iran.liara.run/username?username=${user.first_name}+${user.first_name}`}
+          src={user.avatar}
           alt="Woman looking front"
-        /> */}
+        />
       </div>
       <div className="text-center m-2">
         <h2 className="font-semibold text-xl">

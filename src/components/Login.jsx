@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import { Link } from "react-router";
 import { toast } from "react-toastify";
 import { validateEmail } from "../utilities/ValidateEmail";
@@ -7,10 +7,19 @@ import { LOGIN_URL } from "../Constants";
 import { storeToken } from "../utilities/StoreToken";
 import { Alert } from "../utilities/Alert";
 import { useNavigate } from "react-router";
+import { AuthContext } from "../providers/AuthContext";
 const Login = () => {
   const navigate=useNavigate();
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
+  const {loggedIn,setloggedIn}=useContext(AuthContext)
+  useEffect(() => {
+    if(loggedIn){
+      navigate('/list')
+      Alert("Already Logged In")
+    }
+  }, [])
+  
   const handleLogin = async () => {
     if (!validateEmail(email)) {
       Alert("Please enter valid email");
@@ -39,18 +48,23 @@ const Login = () => {
       if (data.token) {
         storeToken(data.token);
         Alert("Login Successfull", "s");
+        setloggedIn(true)
         navigate('/list')
         
       } else {
         throw new Error("tokenNotRecieved");
       }
     } catch (error) {
-      if (error.message === "tokenNotRecieved") {
+      if(error.response.status==400){
+
+        Alert("Invalid Email or Password", "f");
+      }
+      else if (error.message === "tokenNotRecieved") {
         Alert("Internal Server Error", "f");
       } else {
         Alert("Something went wrong", "f");
       }
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
   return (

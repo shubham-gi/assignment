@@ -1,6 +1,5 @@
 import React, { useContext, useState,useEffect } from "react";
 import { Link } from "react-router";
-import { toast } from "react-toastify";
 import { validateEmail } from "../utilities/ValidateEmail";
 import axios from "axios";
 import { LOGIN_URL } from "../Constants";

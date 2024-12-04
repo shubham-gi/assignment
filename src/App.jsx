@@ -14,6 +14,7 @@ const App = () => {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="list" element={<UserList />} />
+            <Route path="/" element={<UserList />} />
           </Routes>
           <ToastContainer />
         </AuthProvider>

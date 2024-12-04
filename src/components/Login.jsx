@@ -17,7 +17,7 @@ const Login = () => {
       navigate('/list')
       Alert("Already Logged In")
     }
-  }, [])
+  }, [loggedIn])
   
   const handleLogin = async () => {
     if (!validateEmail(email)) {

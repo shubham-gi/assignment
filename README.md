@@ -1,7 +1,7 @@
 # EmployWise
 
 Deployed Link: [EmployWise](https://employwise.netlify.app/)  
-Tech Stack: **React.js**, **Tailwind CSS**, **Context API**
+Tech Stack: **React.js**, **Tailwind CSS**, **Context API**, **React Router**
 
 ---
 
@@ -68,6 +68,7 @@ EmployWise is a user management application designed to handle authentication, u
 - **Tailwind CSS**: Utility-first CSS framework for styling.
 - **Context API**: For state management.
 - **Axios**: For API calls.
+- **React Router**:  For navigation between pages.
 
 ---
 
